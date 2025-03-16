@@ -1,0 +1,32 @@
+<svg width="120" height="80" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for Styling -->
+    <linearGradient id="resumateGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64C2DB" />
+      <stop offset="100%" stop-color="#E56F8C" />
+    </linearGradient>
+
+    <!-- Soft Shadow for Depth -->
+    <filter id="shadow" x="-10%" y="-10%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="4" flood-color="rgba(0, 0, 0, 0.15)" />
+    </filter>
+  </defs>
+
+  <!-- Document Shape with Shadow & Smooth Corners -->
+  <rect x="25" y="15" width="55" height="70" rx="12" fill="white" stroke="url(#resumateGradient)"
+    stroke-width="3" filter="url(#shadow)" />
+
+  <!-- Page Fold Effect (Smooth Curve) -->
+  <path d="M75 65 Q60 75, 50 90 Q50 70, 75 65" fill="url(#resumateGradient)" stroke="white"
+    stroke-width="1" opacity="0.9" />
+
+  <!-- AI Spark Effect (Larger, Evenly Spaced Dots) -->
+  <circle cx="38" cy="32" r="5" fill="#E56F8C" />
+  <circle cx="55" cy="32" r="5" fill="#7476ED" />
+  <circle cx="72" cy="32" r="5" fill="#64C2DB" />
+
+  <!-- Content Lines with Better Contrast -->
+  <path d="M35 50H75" stroke="#7476ED" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+  <path d="M35 60H60" stroke="#E56F8C" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+  <path d="M35 70H50" stroke="#64C2DB" stroke-width="3" stroke-linecap="round" opacity="0.9" />
+</svg>

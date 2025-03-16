@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
+import Header from "./components/custom/Header";
 
 function App() {
   const { user, isLoaded, isSignedIn } = useUser();
@@ -8,7 +9,12 @@ function App() {
     return <Navigate to='/auth/sign-in' />;
   }
 
-  return <Outlet />;
+  return (
+    <>
+      <Header />
+      <Outlet />
+    </>
+  );
 }
 
 export default App;
