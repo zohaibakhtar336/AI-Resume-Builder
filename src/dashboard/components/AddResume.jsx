@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import GlobalApi from "../../../service/GlobalApi";
 import { useUser } from "@clerk/clerk-react";
+import { useNavigate } from "react-router-dom";
 
 function AddResume() {
   const [openDialog, setOpenDialog] = useState(false);
@@ -20,6 +21,7 @@ function AddResume() {
   const [loading, setLoading] = useState(false);
 
   const { user } = useUser();
+  const navigation = useNavigate();
 
   const onCreate = () => {
     if (!resumeTitle.trim()) return;
@@ -38,9 +40,15 @@ function AddResume() {
 
     GlobalApi.CreateNewResume(data)
       .then((resp) => {
-        console.log("Resume Created:", resp);
+        console.log("Resume Created:", resp?.data?.data?.documentId);
         setLoading(false);
         setOpenDialog(false);
+
+        if (resp?.data?.data?.documentId) {
+          navigation(`/dashboard/resume/${resp.data.data.documentId}/edit`);
+        } else {
+          console.error("Error: documentId missing in response");
+        }
       })
       .catch((error) => {
         console.error("Error Creating Resume:", error);
@@ -57,10 +65,7 @@ function AddResume() {
             className="p-14 py-24 border items-center flex justify-center bg-secondary 
               rounded-lg h-[280px] hover:scale-105 transition-all hover:shadow-md 
               cursor-pointer border-dashed"
-            onClick={() => {
-              console.log("Opening Dialog...");
-              setOpenDialog(true);
-            }}>
+            onClick={() => setOpenDialog(true)}>
             <PlusSquare size={50} className="text-gray-500" />
           </div>
         </DialogTrigger>
