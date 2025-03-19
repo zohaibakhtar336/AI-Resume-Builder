@@ -16,7 +16,7 @@ function ResumePreview() {
       }}>
       {/* Personal Detail  */}
       <PersonalDetailPreview resumeInfo={resumeInfo} />
-      {/* Summery  */}
+      {/* summary  */}
       <SummaryPreview resumeInfo={resumeInfo} />
       {/* Professional Experience  */}
       <ExperiencePreview resumeInfo={resumeInfo} />
