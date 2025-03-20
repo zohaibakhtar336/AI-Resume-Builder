@@ -11,34 +11,37 @@ function ExperiencePreview({ resumeInfo }) {
       </h2>
       <hr style={{ borderColor: resumeInfo?.themeColor }} />
 
-      {resumeInfo?.experience?.map((experience, index) => (
-        <div key={index} className='my-5'>
-          {/* Title */}
-          <h2 className='text-sm font-bold'
-            style={{
-              color: resumeInfo?.themeColor
-            }}>
-            {experience?.title || 'Title Not Available'}
-          </h2>
+      {resumeInfo?.Experience?.length > 0 ? (
+        resumeInfo.Experience.map((experience, index) => (
+          <div key={index} className='my-5'>
+            {/* Title */}
+            <h2 className='text-sm font-bold'
+              style={{
+                color: resumeInfo?.themeColor
+              }}>
+              {experience?.title}
+            </h2>
 
-          {/* Company, City, State, and Date */}
-          <h2 className='text-xs flex justify-between'>
-            {experience?.companyName || 'Company Not Available'},
-            {experience?.city || 'City Not Available'},
-            {experience?.state || 'State Not Available'}
-            <span>
-              {experience?.startDate || 'Start Date Not Available'}
-              {experience?.currentlyWorking ? ' to Present' : ` to ${experience?.endDate || 'End Date Not Available'}`}
-            </span>
-          </h2>
-          {/* Work Summary */}
-          <p className='text-xs my-2'>
-            {experience?.workSummary || 'No summary available'}
-          </p>
-        </div>
-      ))}
+            {/* Company and Location */}
+            <h2 className='text-xs flex justify-between'>
+              {experience?.companyName && `${experience.companyName}, `}
+              {experience?.city && `${experience.city}, `}
+              {experience?.state}
+              <span>
+                {experience?.startDate} to {experience?.currentlyWorking ? 'Present' : experience?.endDate}
+              </span>
+            </h2>
+            {/* Work Summary */}
+            {experience?.workSummery && (
+              <div className='text-xs my-2' dangerouslySetInnerHTML={{ __html: experience.workSummery }} />
+            )}
+          </div>
+        ))
+      ) : (
+        <p className='text-center text-sm text-gray-500'>No Experience Added</p>
+      )}
     </div>
-  )
+  );
 }
 
 export default ExperiencePreview
