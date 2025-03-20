@@ -12,7 +12,7 @@ function RichTextEditor({ onRichTextEditorChange, index, defaultValue }) {
   const [value, setValue] = useState(defaultValue);
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext)
   const [loading, setLoading] = useState(false);
-  const GenerateSummeryFromAI = async () => {
+  const GenerateSummaryFromAI = async () => {
 
     if (!resumeInfo?.Experience[index]?.title) {
       toast('Please Add Position Title');
@@ -31,9 +31,9 @@ function RichTextEditor({ onRichTextEditorChange, index, defaultValue }) {
   return (
     <div>
       <div className='flex justify-between my-2'>
-        <label className='text-xs'>Summery</label>
+        <label className='text-xs'>Summary</label>
         <Button variant="outline" size="sm"
-          onClick={GenerateSummeryFromAI}
+          onClick={GenerateSummaryFromAI}
           disabled={loading}
           className="flex gap-2 border-primary text-primary">
           {loading ?

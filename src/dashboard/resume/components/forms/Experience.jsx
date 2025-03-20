@@ -15,7 +15,7 @@ const formField = {
   state: '',
   startDate: '',
   endDate: '',
-  workSummery: '',
+  workSummary: '',
 };
 
 function Experience() {
@@ -113,8 +113,8 @@ function Experience() {
                 <div className='col-span-2'>
                   <RichTextEditor
                     index={index}
-                    defaultValue={item?.workSummery}
-                    onRichTextEditorChange={(e) => handleRichTextEditor(e, 'workSummery', index)}
+                    defaultValue={item?.workSummary}
+                    onRichTextEditorChange={(e) => handleRichTextEditor(e, 'workSummary', index)}
                   />
                 </div>
               </div>
